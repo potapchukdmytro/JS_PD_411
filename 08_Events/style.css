@@ -26,3 +26,11 @@
     height: 500px;
     background-color: grey;
 }
+
+.circle {
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    background: linear-gradient(90deg,rgba(11, 143, 224, 1) 0%, rgba(237, 221, 83, 1) 100%);
+    opacity: 50%;
+}

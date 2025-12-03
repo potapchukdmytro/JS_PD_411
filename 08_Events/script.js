@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnListener = document.getElementById("btnListener");
     btnListener.addEventListener("click", btnEventListenerClick);
 
-    document.addEventListener("keydown", randomColor)
+    document.addEventListener("keydown", randomColor);
+
+    document.addEventListener("mousemove", circleMove)
 });
 
 // document.addEventListener("click", () => {
@@ -63,4 +65,16 @@ function randomColor(event) {
         const b = Math.floor(Math.random() * 256); // 0 - 255
         box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     } 
+}
+
+// Mousemove
+function circleMove(event) {
+    const x = event.pageX;
+    const y = event.pageY;
+    const circle = document.getElementById("circle");
+    const width = parseInt(circle.style.width.split("px")[0]);
+    const height = parseInt(circle.style.height.split("px")[0]);
+    
+    circle.style.top = (y - height / 2) + "px";
+    circle.style.left = (x - width / 2) + "px";
 }
