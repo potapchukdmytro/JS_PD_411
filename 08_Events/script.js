@@ -51,10 +51,16 @@ function leaveBox(event) {
 }
 
 // keydown random color
-function randomColor(event) {
-    if(event.key === 'c') {
-        console.log(event);
-    } else if (event.key === 'c' && event.shiftKey) {
+function randomColor(event) {        
+    const box = document.getElementById("superBox");
 
+    if (event.code === 'KeyC' && event.shiftKey) {
+        box.style.backgroundColor = "grey";
     }
+    else if(event.code === 'KeyC') {
+        const r = Math.floor(Math.random() * 256); // 0 - 255
+        const g = Math.floor(Math.random() * 256); // 0 - 255
+        const b = Math.floor(Math.random() * 256); // 0 - 255
+        box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } 
 }
