@@ -17,12 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnListener = document.getElementById("btnListener");
     btnListener.addEventListener("click", btnEventListenerClick);
+
+    document.addEventListener("keydown", randomColor)
 });
 
 // document.addEventListener("click", () => {
 //     console.log("clicked");
 // });
 
+
+// click
 const activeColor = "#1c93b4a1";
 const noActiveColor = "#808080";
 let activeBox = null;
@@ -34,4 +38,23 @@ function boxClick(event) {
 
     activeBox = event.target;
     activeBox.style.backgroundColor = activeColor;
+}
+
+
+// mouseenter mouseleave
+function enterBox(event) {
+    event.target.style.opacity = 0;
+}
+
+function leaveBox(event) {
+    event.target.style.opacity = 100;
+}
+
+// keydown random color
+function randomColor(event) {
+    if(event.key === 'c') {
+        console.log(event);
+    } else if (event.key === 'c' && event.shiftKey) {
+
+    }
 }
