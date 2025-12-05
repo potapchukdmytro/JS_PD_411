@@ -31,3 +31,11 @@ body {
     cursor: pointer;
     background-color: rgb(106, 106, 83);
 }
+
+.img {
+    transition: border-radius 2s ease;
+}
+
+.img:hover {
+    border-radius: 20%;
+}
