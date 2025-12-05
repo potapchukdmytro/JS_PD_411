@@ -11,6 +11,10 @@
     <title>DOM BOM</title>
 </head>
 <body>
+    <div onclick="toUpHandle()" class="up">
+        UP
+    </div>
+
     <div style="text-align: center;">
         <label>Квадрат</label>
         <input id="square" type="radio" name="boxType" class="mx-1" checked>
@@ -21,6 +25,12 @@
     </div>
     <div id="container" class="container">
 
+    </div>
+    <div>
+        <button class="btn btn-danger" onclick="closeHandle()">Close</button>
+        <button class="btn btn-success" onclick="openHandle()">Open</button>
+        <button class="btn btn-success" onclick="moveHandle()">Move</button>
+        <button class="btn btn-success" onclick="eventsPage()">Events</button>
     </div>
 
     <script src="script.js"></script>

@@ -1,3 +1,7 @@
+body {
+    height: 5000px;
+}
+
 .box {
     display: inline-flex;
     width: 50px;
@@ -8,4 +12,22 @@
     font-size: 1.5em;
     color: white;
     padding: 10px;
+}
+
+.up {
+    height: 50px;
+    width: 50px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.up:hover {
+    cursor: pointer;
+    background-color: rgb(106, 106, 83);
 }

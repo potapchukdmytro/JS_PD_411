@@ -50,3 +50,40 @@ function createBoxHandle() {
     // box.addEventListener("mouseleave", mouseLeaveHandle);
     container.appendChild(box);
 }
+
+
+// BOM - browser object model
+function closeHandle() {
+    window.close();
+}
+
+function openHandle() {
+    window.open("https://google.com");
+}
+
+function moveHandle() {
+    window.moveTo(500, 500);
+}
+
+// navigator
+console.log(navigator.language);
+console.log(navigator.languages);
+
+// Geolocation
+// navigator.geolocation.getCurrentPosition((data) => {console.log(data)}, () => {console.log("Користувач відхилив запит")});
+
+function eventsPage() {
+    location.href = "http://127.0.0.1:5500/08_Events/index.html";
+}
+
+// history.back(); // вперед
+// history.forward(); // назад
+// history.go(-2); // на n записів в історії
+
+
+function toUpHandle() {
+    window.scroll(0, 0);
+}
+
+console.log(screen.width);
+console.log(screen.height);
