@@ -98,9 +98,9 @@
                 <label>Погоджуюся з правилами</label>
                 <input name="rules" type="checkbox" class="form-check" />
             </div>
-            <div >
+            <div>
                 <div>
-                    <input value="cpp" name="language" type="radio"/>
+                    <input value="cpp" name="language" type="radio" />
                     <label>C++</label>
                 </div>
                 <div>
@@ -108,35 +108,69 @@
                     <label>C#</label>
                 </div>
                 <div>
-                    <input value="js" name="language" type="radio" checked/> 
+                    <input value="js" name="language" type="radio" checked />
                     <label>JavaScript</label>
                 </div>
             </div>
             <div>
-                <input type="color" name="color" value="#0000FF">
+                <input type="color" name="color" value="#0000FF" />
             </div>
             <div>
                 <!-- тільки дата -->
-                <input type="date" name="date" value="2026-01-01"> 
+                <input type="date" name="date" value="2026-01-01" />
             </div>
             <div>
                 <!-- дата та час -->
-                <input type="datetime-local" name="datetime">
+                <input type="datetime-local" name="datetime" />
             </div>
             <div>
                 <!-- тільки час -->
-                <input type="time" name="time">
+                <input type="time" name="time" />
             </div>
             <div>
                 <!-- тиждень -->
-                <input type="week" name="week">
+                <input type="week" name="week" />
             </div>
             <div>
                 <!-- місяць -->
-                <input type="month" name="month">
+                <input type="month" name="month" />
             </div>
+
+            <div>
+                <input type="range" name="range" max="100" value="25" />
+            </div>
+
+            <div>
+                <!-- select -->
+                <select name="select" class="form-select">
+                    <option value="ua">Україна</option>
+                    <option value="us">Америка</option>
+                    <option value="sp">Іспанія</option>
+                    <option selected value="it">Італія</option>
+                </select>
+            </div>
+
+            <div>
+                <input oninput="selectAudio(event)" type="file" accept="audio/*">
+            </div>
+
+            <audio controls id="audioPlayer">Player</audio>
+
+            <div style="margin: 10px 0px;">
+                <!-- file -->
+                <input multiple oninput="selectPicture(event)" type="file" name="picture" accept="image/*" />
+            </div>
+
+            <div id="preview">
+
+            </div>
+
             <div>
                 <input class="btn btn-primary" type="submit" value="Submit" />
+                <input class="btn btn-danger" type="reset" value="Очистити" />
+            </div>
+            <div>
+                <textarea style="width: 500px; white-space: nowrap;">Text</textarea>
             </div>
         </form>
 
