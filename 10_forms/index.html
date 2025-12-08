@@ -21,7 +21,7 @@
             action=""
             method="get"
         >
-            <div class="input-group mb-3">
+            <div class="input-group">
                 <div class="input-group-prepend">
                     <span
                         class="input-group-text"
@@ -36,20 +36,26 @@
                     value="user@mail.com"
                 />
             </div>
+            <div class="mb-3">
+                <span id="emailError" hidden style="font-size: 0.9em; color: white">Помилка</span>
+            </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span
-                        class="input-group-text"
-                        id="inputGroup-sizing-default"
-                        >Password</span
+                    class="input-group-text"
+                    id="inputGroup-sizing-default"
+                    >Password</span
                     >
                 </div>
                 <input
-                    name="password"
-                    type="password"
-                    class="form-control"
-                    value="qwerty"
+                name="password"
+                type="password"
+                class="form-control"
+                value="qwerty"
                 />
+            </div>
+            <div class="mb-3">
+                <span id="passwordError" hidden style="font-size: 0.9em; color: white">Помилка</span>
             </div>
             <div>
                 <input class="btn btn-primary" type="submit" value="Увійти" />
@@ -58,7 +64,7 @@
 
         <h1 style="text-align: center">Огляд інпутів</h1>
         <form
-            onsubmit="loginFormHandle(event)"
+            onsubmit="formSubmit(event)"
             name="login"
             class="form-box"
             action=""
@@ -151,26 +157,36 @@
             </div>
 
             <div>
-                <input oninput="selectAudio(event)" type="file" accept="audio/*">
+                <input
+                    oninput="selectAudio(event)"
+                    type="file"
+                    accept="audio/*"
+                />
             </div>
 
             <audio controls id="audioPlayer">Player</audio>
 
-            <div style="margin: 10px 0px;">
+            <div style="margin: 10px 0px">
                 <!-- file -->
-                <input multiple oninput="selectPicture(event)" type="file" name="picture" accept="image/*" />
+                <input
+                    multiple
+                    oninput="selectPicture(event)"
+                    type="file"
+                    name="picture"
+                    accept="image/*"
+                />
             </div>
 
-            <div id="preview">
-
-            </div>
+            <div id="preview"></div>
 
             <div>
                 <input class="btn btn-primary" type="submit" value="Submit" />
                 <input class="btn btn-danger" type="reset" value="Очистити" />
             </div>
             <div>
-                <textarea style="width: 500px; white-space: nowrap;">Text</textarea>
+                <textarea style="width: 500px; white-space: nowrap">
+Text</textarea
+                >
             </div>
         </form>
 
