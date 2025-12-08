@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <ul id="list">
+    <!-- <ul id="list">
 
-    </ul>
+    </ul> -->
     
+    <div style="display: flex;">
+
+        <div data-color="#000" onclick="changeColorHandle(event)" class="color-button" style="background-color: #000;"></div>
+        <div data-color="#767676" onclick="changeColorHandle(event)" class="color-button" style="background-color: #767676;"></div>
+        <div data-color="#FF0000" onclick="changeColorHandle(event)" class="color-button" style="background-color: red;"></div>
+        <div data-color="#00FF00" onclick="changeColorHandle(event)" class="color-button" style="background-color: #00FF00;"></div>
+    </div>
+    <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptas, praesentium rerum tenetur quasi nesciunt accusantium, ipsam nostrum obcaecati ea repellat at est? Est corporis voluptates eveniet eligendi. Voluptas quisquam deserunt non consequatur similique consequuntur doloribus quo labore quis laboriosam laudantium cupiditate mollitia, beatae velit alias aperiam ea! Voluptas, assumenda.</p>
+
     <script src="script.js"></script>
 </body>
 </html>
