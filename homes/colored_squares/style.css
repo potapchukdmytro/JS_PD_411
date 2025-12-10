@@ -1,0 +1,42 @@
+.form {
+    display: grid;
+    grid-template-columns: 0fr 2fr 0fr 2fr 0fr 2fr;
+    width: 50%;
+    margin: auto;
+}
+
+.letter {
+    padding: 0px 8px;
+    border: 1px solid black;
+}
+
+.container {
+    background-color: bisque;
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.colors-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 16px;
+    gap: 16px;
+}
+
+.color {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(165, 42, 42);
+}
+
+.color-text {
+    flex-grow: 1;
+    text-align: center;
+}
