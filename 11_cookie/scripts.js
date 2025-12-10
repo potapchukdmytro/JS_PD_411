@@ -9,5 +9,5 @@ function setCookie() {
 
     date = new Date();
     date.setMinutes(date.getMinutes() + 1)
-    document.cookie = "tmp=value;path=/;expires=" + date.toUTCString()
+    document.cookie = `tmp=value;expires=${date.toUTCString()};path=/`
 }
