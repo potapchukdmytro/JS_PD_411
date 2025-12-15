@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Checkbox radio</title>
+    </head>
+    <body>
+        <form onsubmit="formHandle(event)" style="display: flex; flex-direction: column; width: 15%; margin: auto;">
+            <div style="border: 2px double black; margin: 10px">
+                <div>
+                    <label>January</label>
+                    <input type="checkbox" name="january" />
+                </div>
+                <div>
+                    <label>February</label>
+                    <input type="checkbox" name="february" />
+                </div>
+                <div>
+                    <label>March</label>
+                    <input type="checkbox" name="march" />
+                </div>
+            </div>
+
+            <div style="border: 2px double black; margin: 10px">
+                <div>
+                    <label>Red</label>
+                    <input value="red" type="radio" name="color" checked />
+                </div>
+                <div>
+                    <label>Green</label>
+                    <input value="green" type="radio" name="color" />
+                </div>
+                <div>
+                    <label>Blue</label>
+                    <input value="blue" type="radio" name="color" />
+                </div>
+            </div>
+
+            <div style="border: 2px double black; margin: 10px">
+                <div>
+                    <label>Default</label>
+                    <input value="default" type="radio" name="font" checked />
+                </div>
+                <div>
+                    <label>Bold</label>
+                    <input value="bold" type="radio" name="font" />
+                </div>
+                <div>
+                    <label>Italic</label>
+                    <input value="italic" type="radio" name="font" />
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <script src="scripts.js"></script>
+    </body>
+</html>
