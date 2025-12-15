@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+
+.box {
+    position: absolute; 
+    display: inline-block; 
+    background-color: brown;
+}

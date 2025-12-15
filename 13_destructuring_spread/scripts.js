@@ -101,3 +101,120 @@ function Second() {
     personalData = { ...personalData, email: "newemail@mail.com", age: 40 };
 }
 
+
+function printTitle(text, color) {
+    const title = document.getElementById("title");
+    title.style.color = color;
+    title.innerText = text;
+}
+
+function clickHandle() {
+    const timeoutId = setTimeout(printTitle, 5000, "Ukraine", "#FF0000");
+    setTimeout(() => {
+        console.log("Freeze 2 sec");
+    }, 2000);
+
+    const stopBtn = document.getElementById("stopBtn");
+    stopBtn.addEventListener("click", () => { clearTimeout(timeoutId); });
+}
+
+let count = 0;
+
+function addItem() {
+    const list = document.getElementById("list");
+    list.innerHTML += `<li>${++count}</li>`;
+}
+
+function generateHandle() {
+    setInterval(addItem, 2000);
+}
+
+function startCounterHandle() {
+    const counter = document.getElementById("counter");
+    const intervalId = setInterval(() => {
+        let c = parseInt(counter.innerText);
+        c++;
+        counter.innerText = c;
+    }, 100);
+    const stopBtn = document.getElementById("pauseCounterBtn");
+    stopBtn.addEventListener("click", () => clearInterval(intervalId));
+}
+
+function stopCounterHandle() {
+    const stopBtn = document.getElementById("pauseCounterBtn");
+    stopBtn.click();
+    const counter = document.getElementById("counter");
+    counter.innerText = 0;
+}
+
+function pxToInt(value) {
+    return parseInt(value.split("px")[0]);
+}
+
+function moveDir(dir) {
+    const box = document.getElementById("box");
+    let x = pxToInt(box.style.left);
+    let y = pxToInt(box.style.top);   
+    const step = 10;
+    switch (dir) {
+        case "right":
+            x += step;
+            box.style.left = `${x}px`;
+            break;
+        case "left":
+            x -= step;
+            box.style.left = `${x}px`;
+            break;
+        case "up":
+            y -= step;
+            box.style.top = `${y}px`;
+            break;
+        case "down":
+            y += step;
+            box.style.top = `${y}px`;
+            break;
+    }
+}
+
+let dir = "right";
+function moveBox() {
+    const box = document.getElementById("box");
+    let x = pxToInt(box.style.left);
+    let y = pxToInt(box.style.top);    
+    const width = pxToInt(box.style.width);
+    const height = pxToInt(box.style.height);
+    const step = 1;
+    
+    if (x < window.innerWidth - width - step - 5 && dir == "right" && y < height) {
+        moveDir("right");
+        return;
+    }
+    else {
+        dir = "down";
+    }
+    if(y < window.innerHeight - height - step && dir == "down" && x >= window.innerWidth - width - step - 5 ) {
+        moveDir("down");
+        return;
+    } else {
+        dir = "left";
+    }   
+    if(x > 0 && dir == "left" && y >= window.innerHeight - height - step) {
+        moveDir("left");
+        return;
+    } else {
+        dir = "up";
+    } 
+    if(y > 0 && dir == "up" && x < width) {
+        moveDir("up");
+        return;
+    } else {
+        dir = "right";
+    }
+}
+
+
+function startBoxMove() {
+    const id = setInterval(moveBox, 10);
+    const stopBtn = document.getElementById('stopBoxMove');
+    stopBtn.addEventListener("click", () => clearInterval(id));
+}
