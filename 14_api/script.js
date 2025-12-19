@@ -97,6 +97,7 @@ function getArticleCard(article) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // reade local data
     const meta = localStorage.getItem("meta");
     if(meta) {
         const {keyword, page} = JSON.parse(meta);
@@ -104,4 +105,41 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         fetchNews("it");
     }
+
+    // user location
+    navigator.geolocation.getCurrentPosition(succesPosition, errorPosition);
 });
+
+
+function succesPosition(position) {
+    const {latitude, longitude} = position.coords;      
+    setUserCity(latitude, longitude);
+}
+
+function errorPosition() {
+    const url = "http://ip-api.com/json";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const {lat, lon} = data;
+        setUserCity(lat, lon);
+    })
+    .catch(err => console.error(err));
+}
+
+function setUserCity(lat, lon) {
+    const key = "";
+    const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${key}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const item = data[0];
+        const {local_names} = item;
+        const {uk} = local_names;
+        
+        const userCity = document.getElementById("userCity");
+        userCity.innerText = uk;
+    })
+    .catch(err => console.error(err));
+}
