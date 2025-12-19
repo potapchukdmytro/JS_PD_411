@@ -1,6 +1,8 @@
-async function fetchNews(keyword) {
+async function fetchNews(keyword, page=1) {
+    const pageSize = 20;
+
     const newsApiUrl =
-        `https://newsapi.org/v2/everything?apiKey=eef038525fa7401d8dfe7cf1a9006b10&q=${keyword}&pageSize=20&language=uk`;
+        `https://newsapi.org/v2/everything?apiKey=eef038525fa7401d8dfe7cf1a9006b10&q=${keyword}&pageSize=${pageSize}&language=uk&page=${page}`;
 
     try {
         const response = await fetch(newsApiUrl);
@@ -9,10 +11,11 @@ async function fetchNews(keyword) {
             console.log(response.status);
             return;
         }
-
+        
         const data = await response.json();
-        const { articles } = data;
+        const { articles, totalResults } = data;
         displayArticles(articles);
+        setPagination(totalResults, pageSize, page, keyword);
     } catch (error) {
         console.error(error);
     }
@@ -35,6 +38,27 @@ function displayArticles(articles) {
         const child = getArticleCard(article);
         row.appendChild(child);
     }
+
+    window.scrollTo(0, 0);
+}
+
+function setPagination(total, pageSize, page, keyword) {
+    const pagination = document.getElementById("pagination");
+    const pages = Math.ceil(total / pageSize);
+
+    pagination.innerHTML = `<li class="page-item ${page === 1 ? "disabled" : ""}">
+                    <button onclick="fetchNews('${keyword}', ${page - 1})" class="page-link">&laquo;</button>
+                </li>`;
+
+    for(let i = 1; i <= pages; i++) {
+        pagination.innerHTML += `<li class="page-item ${page === i ? "active" : ""}">
+                    <button onclick="fetchNews('${keyword}', ${i})" class="page-link">${i}</button>
+                </li>`;
+    }
+
+    pagination.innerHTML += `<li class="page-item ${page === pages ? "disabled" : ""}">
+                    <button onclick="fetchNews('${keyword}', ${page + 1})" class="page-link">&raquo;</button>
+                </li>`;
 }
 
 function getArticleCard(article) {
