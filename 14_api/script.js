@@ -1,5 +1,9 @@
 async function fetchNews(keyword, page=1) {
     const pageSize = 20;
+    const meta = {
+        page: page,
+        keyword: keyword
+    };
 
     const newsApiUrl =
         `https://newsapi.org/v2/everything?apiKey=eef038525fa7401d8dfe7cf1a9006b10&q=${keyword}&pageSize=${pageSize}&language=uk&page=${page}`;
@@ -14,6 +18,7 @@ async function fetchNews(keyword, page=1) {
         
         const data = await response.json();
         const { articles, totalResults } = data;
+        localStorage.setItem("meta", JSON.stringify(meta));
         displayArticles(articles);
         setPagination(totalResults, pageSize, page, keyword);
     } catch (error) {
@@ -91,4 +96,12 @@ function getArticleCard(article) {
     return div;
 }
 
-document.addEventListener("DOMContentLoaded", () => fetchNews("it"));
+document.addEventListener("DOMContentLoaded", () => {
+    const meta = localStorage.getItem("meta");
+    if(meta) {
+        const {keyword, page} = JSON.parse(meta);
+        fetchNews(keyword, page);
+    } else {
+        fetchNews("it");
+    }
+});
